@@ -96,3 +96,11 @@ C:\Users\Jamal\workspace\scraperApp\FinanceScraper\obj\Debug\FinanceScraper.cspr
 C:\Users\Jamal\workspace\scraperApp\FinanceScraper\obj\Debug\FinanceScraper.csproj.CopyComplete
 C:\Users\Jamal\workspace\scraperApp\FinanceScraper\obj\Debug\FinanceScraper.dll
 C:\Users\Jamal\workspace\scraperApp\FinanceScraper\obj\Debug\FinanceScraper.pdb
+C:\Users\Jamal\workspace\scraperApp\FinanceScraper\bin\HtmlAgilityPack.dll
+C:\Users\Jamal\workspace\scraperApp\FinanceScraper\bin\HtmlAgilityPack.pdb
+C:\Users\Jamal\workspace\scraperApp\FinanceScraper\bin\HtmlAgilityPack.xml
+C:\Users\Jamal\workspace\scraperApp\FinanceScraper\bin\Scraper.Entities.dll
+C:\Users\Jamal\workspace\scraperApp\FinanceScraper\bin\Scraper.Entities.pdb
+C:\Users\Jamal\workspace\scraperApp\FinanceScraper\obj\Debug\FinanceScraper.DataContexts.StockMigrations.InitialCreate.resources
+C:\Users\Jamal\workspace\scraperApp\FinanceScraper\obj\Debug\FinanceScraper.csproj.GenerateResource.cache
+C:\Users\Jamal\workspace\scraperApp\FinanceScraper\obj\Debug\FinanceScraper.DataContexts.IdentityMigrations.InitialCreate.resources
