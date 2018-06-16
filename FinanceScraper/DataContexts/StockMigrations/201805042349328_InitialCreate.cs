@@ -13,6 +13,8 @@ namespace FinanceScraper.DataContexts.StockMigrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        change = c.String(),
+                        percentchange = c.String(),
                         price = c.Single(nullable: false),
                         symbol = c.String(),
                     })

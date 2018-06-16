@@ -37,6 +37,8 @@ namespace FinanceScraper.DataContexts.IdentityMigrations
                         Id = c.String(nullable: false, maxLength: 128),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
+                        YahooEmail = c.String(maxLength: 256),
+                        YahooPassword= c.String(maxLength:256),
                         PasswordHash = c.String(),
                         SecurityStamp = c.String(),
                         PhoneNumber = c.String(),

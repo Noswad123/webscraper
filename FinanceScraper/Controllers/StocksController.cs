@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using FinanceScraper.Scrapers;
 using FinanceScraper.DataContext;
 using Scraper.Entities;
 
@@ -19,9 +20,42 @@ namespace FinanceScraper.Controllers
         // GET: Stocks
         public ActionResult Index()
         {
-            return View(db.Stocks.ToList());
+          return View(db.Stocks.ToList());
         }
-
+        public void HapUpdate()
+        {
+            HapScraper yahooScraper = new HapScraper();
+            Stock tempStock = new Stock();
+            foreach(var stock in db.Stocks)
+            {
+                tempStock= yahooScraper.GetSingleStock(stock.Symbol);
+                stock.Price = tempStock.Price;
+                stock.Change = tempStock.Change;
+                stock.PercentChange = tempStock.PercentChange;
+            }
+            db.SaveChanges();
+        }
+        public RedirectResult SeleniumScrape()
+        {
+            SeleniumScraper yahoo = new SeleniumScraper();
+            List<Stock> stockList = new List<Stock>();
+            yahoo.Login(stockList);
+            
+            foreach (var stock in db.Stocks)
+            {
+                for (var i = 1; i < stockList.Count; i++)
+                {
+                    if (stock.Symbol.ToUpper() == stockList[i].Symbol)
+                    {
+                        stock.Price = stockList[i].Price;
+                        stock.Change = stockList[i].Change;
+                        stock.PercentChange = stockList[i].PercentChange;
+                    }
+                }
+            }
+            db.SaveChanges();
+            return Redirect("Index");
+        }
         // GET: Stocks/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,7 +70,18 @@ namespace FinanceScraper.Controllers
             }
             return View(stock);
         }
-
+      
+        public RedirectResult AddStock(string symbol)
+        {
+            HapScraper yahooScraper = new HapScraper();
+            Stock tempStock = new Stock();
+            tempStock = yahooScraper.GetSingleStock(symbol);
+            if (tempStock == null)
+                return Redirect("Index");
+            db.Stocks.Add(tempStock);
+            db.SaveChanges();
+            return Redirect("Index");
+        }
         // GET: Stocks/Create
         public ActionResult Create()
         {
@@ -48,7 +93,7 @@ namespace FinanceScraper.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,price,symbol")] Stock stock)
+        public ActionResult Create([Bind(Include = "Id,Name,price,change,percentchange,symbol")] Stock stock)
         {
             if (ModelState.IsValid)
             {

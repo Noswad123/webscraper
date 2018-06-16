@@ -9,7 +9,7 @@ namespace FinanceScraper.DataContexts.StockMigrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             MigrationsDirectory = @"DataContexts\StockMigrations";
         }
 

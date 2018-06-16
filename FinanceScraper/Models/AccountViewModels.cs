@@ -68,6 +68,15 @@ namespace FinanceScraper.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+     
+        [EmailAddress]
+        [Display(Name = "YahooEmail")]
+        public string YahooEmail { get; set; }
+
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "YahooPassword")]
+        public string YahooPassword { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

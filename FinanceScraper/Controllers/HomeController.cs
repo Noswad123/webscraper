@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
-using FinanceScraper.Actions;
+using FinanceScraper.Scrapers;
 using HtmlAgilityPack;
 
 namespace FinanceScraper.Controllers

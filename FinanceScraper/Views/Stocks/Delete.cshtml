@@ -16,26 +16,22 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Symbol)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.price)
+            @Html.DisplayNameFor(model => model.Price)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.price)
+            @Html.DisplayFor(model => model.Change)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.symbol)
+            @Html.DisplayNameFor(model => model.PercentChange)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.symbol)
-        </dd>
-
-    </dl>
+      </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
