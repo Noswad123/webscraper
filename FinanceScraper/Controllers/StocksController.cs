@@ -15,13 +15,17 @@ namespace FinanceScraper.Controllers
     [Authorize]
     public class StocksController : Controller
     {
-        private StocksDb db = new StocksDb();
 
+        private StocksDb db = new StocksDb();
+        
         // GET: Stocks
-        public ActionResult Index()
+        public ActionResult Index(bool isLoading=false)
         {
-          return View(db.Stocks.ToList());
+           
+            ViewBag.isLoading = isLoading;
+            return View(db.Stocks.ToList());
         }
+    
         public void HapUpdate()
         {
             HapScraper yahooScraper = new HapScraper();
@@ -36,7 +40,7 @@ namespace FinanceScraper.Controllers
             db.SaveChanges();
         }
         public RedirectResult SeleniumScrape()
-        {
+        {             
             SeleniumScraper yahoo = new SeleniumScraper();
             List<Stock> stockList = new List<Stock>();
             yahoo.Login(stockList);
