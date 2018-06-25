@@ -3,3 +3,4 @@ C:\Users\Jamal\workspace\scraperApp\Scraper.Entities\bin\Debug\Scraper.Entities.
 C:\Users\Jamal\workspace\scraperApp\Scraper.Entities\obj\Debug\Scraper.Entities.csproj.CoreCompileInputs.cache
 C:\Users\Jamal\workspace\scraperApp\Scraper.Entities\obj\Debug\Scraper.Entities.dll
 C:\Users\Jamal\workspace\scraperApp\Scraper.Entities\obj\Debug\Scraper.Entities.pdb
+C:\Users\Jamal\workspace\scraperApp\Scraper.Entities\obj\Debug\Scraper.Entities.csprojAssemblyReference.cache

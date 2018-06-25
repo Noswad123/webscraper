@@ -4,20 +4,19 @@
     ViewBag.Title = "Index";
     ViewBag.symbol = "Enter Stock Symbol";
 }
+<div id="stock-container">
+    <div id="input">
+        @using (Html.BeginForm("AddStock", "Stocks", FormMethod.Post))
+        {
+            @Html.TextBox("symbol",null, new { @class = "add-input" });
+            <input class="button" value="Add" type="submit" />
+        }
+        <div class="RefreshAndWait">
+            @using (Html.BeginForm("SeleniumScrape", "Stocks", FormMethod.Post))
+            {
+                <input id="refresh" value="Refresh Stocks in your Yahoo Finance Account" type="submit" />
+            }
 
-<h2>Your Stocks</h2>
-<div id="input">
-    @using (Html.BeginForm("AddStock", "Stocks", FormMethod.Post))
-    {
-        @Html.TextBox("symbol");
-        <input value="Add" type="submit" />
-    }
-    <div class="RefreshAndWait">
-        @using (Html.BeginForm("SeleniumScrape", "Stocks", FormMethod.Post))
-         {
-            <input id="refresh" value="Refresh Stocks in Yahoo Finance Account" type="submit" />
-         }
-        
             <div id="loader" class="loader loader--style7" title="6">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
@@ -26,74 +25,80 @@
                          values="1; .2; 1"
                          begin="0s" dur="0.6s" repeatCount="indefinite" />
 
-                </rect>
-                            <rect x="7" y="0" width="4" height="20" fill="#333">
-                            <animate attributeName="opacity" attributeType="XML"
-                                     values="1; .2; 1"
-                                     begin="0.2s" dur="0.6s" repeatCount="indefinite" />
+
 
                 </rect>
-                            <rect x="14" y="0" width="4" height="20" fill="#333">
-                            <animate attributeName="opacity" attributeType="XML"
-                                     values="1; .2; 1"
-                                     begin="0.4s" dur="0.6s" repeatCount="indefinite" />
+                <rect x="7" y="0" width="4" height="20" fill="#333">
+                <animate attributeName="opacity" attributeType="XML"
+                         values="1; .2; 1"
+                         begin="0.2s" dur="0.6s" repeatCount="indefinite" />
+
+
+
+                </rect>
+                <rect x="14" y="0" width="4" height="20" fill="#333">
+                <animate attributeName="opacity" attributeType="XML"
+                         values="1; .2; 1"
+                         begin="0.4s" dur="0.6s" repeatCount="indefinite" />
+
+
 
                 </rect>
               </svg>
             </div>
-        
+
+        </div>
+
     </div>
-   
-</div>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Symbol)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Change)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PercentChange)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <table id="stock-table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Symbol)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Change)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PercentChange)
-            </td>
-            <td>
-                <!--
-                Html.ActionLink("Edit", "Edit", new { id = item.Id })
-                Html.ActionLink("Details", "Details", new { id = item.Id })
-                -->
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th >
+                @Html.DisplayNameFor(model => model.Symbol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Change)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PercentChange)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td id="stock-symbol">
+                    @Html.DisplayFor(modelItem => item.Symbol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Change)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PercentChange)
+                </td>
+                <td>
+                    <!--
+                    Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    Html.ActionLink("Details", "Details", new { id = item.Id })
+                    -->
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

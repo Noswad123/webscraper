@@ -1,0 +1,38 @@
+﻿@import "./variables.scss";
+@import "./components/navbar.scss";
+@import "./pages/home.scss";
+@import "./pages/stock.scss";
+@import "./pages/contact.scss";
+body {
+    background: linear-gradient(to bottom, #1cb5e0 0%, #000851 100%);
+    color: $offwhite;
+    padding:0;
+    margin:0;
+    a {
+        text-decoration: none;
+        color: $purple;
+    }
+}
+#wrapper {
+    min-height: 83vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+button, .button, #refresh, input[type=submit] {
+    color: $charcoal;
+    background-color: $test;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    outline: none;
+    min-width: 100px;
+
+    &:hover, &:focus {
+        transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
+        animation: giggle 0.5s 1;
+    }
+}

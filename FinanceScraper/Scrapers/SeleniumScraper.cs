@@ -40,10 +40,10 @@ namespace FinanceScraper.Scrapers
             passwordButton.Click();
 
             chromeDriver.Navigate().GoToUrl("https://finance.yahoo.com/portfolio/p_0/view/v1");
-            waitForElement.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//button[@title='Close']")));
+            //waitForElement.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//button[@title='Close']")));
 
-            IWebElement element = chromeDriver.FindElement(By.XPath("//button[@title='Close']"));
-            element.Click();
+            //IWebElement element = chromeDriver.FindElement(By.XPath("//button[@title='Close']"));
+            //element.Click();
 
             List<IWebElement> elements = new List<IWebElement>();
             elements = chromeDriver.FindElements(By.XPath("//tbody/tr")).ToList<IWebElement>();

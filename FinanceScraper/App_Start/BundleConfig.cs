@@ -8,6 +8,7 @@ namespace FinanceScraper
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            BundleTable.EnableOptimizations = true;
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -24,11 +25,13 @@ namespace FinanceScraper
                       "~/Scripts/respond.js",
                       "~/Scripts/refresh.js"));
 
-           /* bundles.Add(new StyleBundle("~/Content/css").Include(
+            /*bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/Site.css",
                       "~/Content/styles.css"));*/
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/*.css"));
+            //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/*.css"));
+            bundles.Add(new StyleBundle("~/bundles/css")
+                .Include("~/Content/index.css"));
         }
     }
 }

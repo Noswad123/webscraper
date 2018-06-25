@@ -1,0 +1,128 @@
+﻿@import "../variables.scss";
+
+.add-input {
+    height: 40px;
+    padding-left:10px;
+    border: 2px solid $charcoal;
+    box-sizing:border-box;
+}
+#stock-container{
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    width:100%;
+}
+#stock-symbol{
+    text-transform:uppercase;
+}
+#stock-table {
+    background-color: $charcoal;
+    width: 80%;
+    border-collapse: collapse;
+    margin: 50px 0;
+
+    th {
+        padding: 10px 0 10px 10px;
+        text-align: left;
+    }
+
+    td {
+        border-top: 1px solid $blue;
+        border-bottom: 1px solid $blue;
+        height: 30px;
+        padding-left: 10px;
+    }
+
+    a {
+        color: $flame;
+    }
+
+    border-radius: 4px;
+    border-bottom: 1px solid rgba(28, 227, 125, 0.5);
+    color: #fff;
+    transform: translateZ(0);
+    transition: all 0.2s ease;
+    top: -10px;
+    box-shadow: 0px 10px 10px rgba(19, 196, 163, 0.4);
+    margin-top: 50px;
+    transform: rotateX(20deg);
+}
+#refresh {
+    width: 150px;
+    border: none;
+    white-space: normal;
+    word-wrap: break-word;
+    border-width:2px;
+    border-style:outset;
+
+    
+}
+    #input {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+    .RefreshAndWait {
+    }
+
+    .loader {
+        text-align: center;
+        padding: 0 0 1em 0;
+        display: none;
+        vertical-align: top;
+    }
+
+    svg path,
+    svg rect {
+        fill: #FF6700;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    #main {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #main img {
+        max-height: 200px;
+    }
+
+    @keyframes giggle {
+        25% {
+            transform: scale(0.9, 1.1);
+        }
+
+        50% {
+            transform: scale(1.1, 0.9);
+        }
+
+        75% {
+            transform: scale(0.95, 1.05);
+        }
+
+        from, to {
+            transform: scale(1, 1);
+        }
+
+        25% {
+            transform: scale(0.9, 1.1);
+        }
+
+        50% {
+            transform: scale(1.1, 0.9);
+        }
+
+        75% {
+            transform: scale(0.95, 1.05);
+        }
+    }

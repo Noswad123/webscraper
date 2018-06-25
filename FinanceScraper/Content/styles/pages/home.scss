@@ -1,0 +1,23 @@
+﻿@import "../variables.scss";
+#home-container {
+    width: 100%;
+    min-height:20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    text-align: center;
+}
+#home-title {
+    width: 100%;
+    color: $offwhite;
+    font-size: 50px;
+}
+
+#text{
+    font-size:20px;
+    width:80%;
+    text-align:center;
+    margin:0;
+    padding:0;
+}
